@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import cl from '~/plugins/cloudinary';
 
 export default {

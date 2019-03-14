@@ -1,27 +1,30 @@
 <template>
-  <v-list two-line>
-    <template v-for="(character, index) in characters">
-      <v-divider v-if="index > 0" :key="`d-${index}`"></v-divider>
-      <v-list-tile
-        :key="`l-${index}`"
-        avatar
-        :to="`/characters/${character.id}`"
-      >
-        <v-list-tile-avatar>
-          <img :src="transformImage(`jam/${character.image}`)">
-        </v-list-tile-avatar>
+<v-card>
+    <v-list two-line>
+      <template v-for="(character, index) in characters">
+        <v-divider v-if="index > 0" :key="`d-${index}`"></v-divider>
+        <v-list-tile
+          :key="`l-${index}`"
+          avatar
+          :to="`/characters/${character.id}`"
+        >
+          <v-list-tile-avatar>
+            <img :src="transformImage(`jam/${character.image}`)">
+          </v-list-tile-avatar>
 
-        <v-list-tile-content>
-          <v-list-tile-title v-html="character.name"></v-list-tile-title>
-          <v-list-tile-sub-title v-html="character.alliance"></v-list-tile-sub-title>
-        </v-list-tile-content>
-        <v-list-tile-action>
-          <font-awesome-icon :style="{ color: 'red' }" v-if="['rebel', 'resistance'].some(el => character.alliance.toLowerCase().includes(el))" :icon="['fab', 'rebel']" />
-          <font-awesome-icon v-else :icon="['fab', 'empire']" />
-        </v-list-tile-action>
-      </v-list-tile>
-    </template>
-  </v-list>
+          <v-list-tile-content>
+            <v-list-tile-title v-html="character.name"></v-list-tile-title>
+            <v-list-tile-sub-title v-html="character.alliance"></v-list-tile-sub-title>
+          </v-list-tile-content>
+          <v-list-tile-action>
+            <font-awesome-icon :style="{ color: 'red' }" v-if="['rebel', 'resistance'].some(el => character.alliance.toLowerCase().includes(el))" :icon="['fab', 'rebel']" size="2x"/>
+            <font-awesome-icon v-if="character.alliance.toLowerCase().includes('order')" :icon="['fab', 'first-order-alt']" size="2x"/>
+            <font-awesome-icon v-if="character.alliance.toLowerCase().includes('empire')" :icon="['fab', 'empire']" size="2x"/>
+          </v-list-tile-action>
+        </v-list-tile>
+      </template>
+    </v-list>
+</v-card>
 </template>
 
 <script>

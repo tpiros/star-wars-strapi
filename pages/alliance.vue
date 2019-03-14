@@ -85,9 +85,3 @@
   margin-left: .5em
 }
 </style>
-
-
-<v-btn color="blue" flat value="alliance" to="/alliance">
-  <span>Alliance</span>
-  <v-icon>group</v-icon>
-</v-btn>

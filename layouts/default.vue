@@ -6,9 +6,7 @@
           <div class="text-md-center text-xs-center">
             <v-btn color="primary" raised large to="/" dark><v-icon left dark color="red">favorite</v-icon> Star Wars <v-icon right dark color="red">favorite</v-icon></v-btn>
           </div>
-          <v-card>
-            <nuxt />
-          </v-card>
+          <nuxt />
         </v-flex>
       </v-layout>
       <bottomNavigation />
