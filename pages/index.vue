@@ -1,9 +1,9 @@
 <template>
   <v-list two-line>
     <template v-for="(character, index) in characters">
-      <v-divider v-if="index > 0" :key="`d-${character.id}`"></v-divider>
+      <v-divider v-if="index > 0" :key="`d-${index}`"></v-divider>
       <v-list-tile
-        :key="`l-${character.id}`"
+        :key="`l-${index}`"
         avatar
         :to="`/characters/${character.id}`"
       >
@@ -24,12 +24,11 @@
 </template>
 
 <script>
-import axios from 'axios';
 import cl from '~/plugins/cloudinary';
 
 export default {
-  async asyncData() {
-    let { data } = await axios.get('http://localhost:1337/characters');
+  async asyncData({ $axios }) {
+    let data = await $axios.$get(`${$axios.defaults.baseURL}characters`);
     data = data.map(d => ({
       id: d.id,
       name: d.name,

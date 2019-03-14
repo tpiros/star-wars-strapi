@@ -57,6 +57,7 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    baseURL: 'https://serene-hamlet-60919.herokuapp.com/'
   },
 
   /*
@@ -89,7 +90,7 @@ module.exports = {
       method: 'GET',
       strategyOptions: {cacheableResponse: { statuses: [0, 200] }}
     },{
-      urlPattern: 'http://localhost:1337/.*',
+      urlPattern: 'https://serene-hamlet-60919.herokuapp.com/.*',
       handler: 'staleWhileRevalidate',
       method: 'GET',
       strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
