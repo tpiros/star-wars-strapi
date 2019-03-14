@@ -77,7 +77,7 @@ module.exports = {
     extend(config, ctx) {
     }
   },
-  workbox: {
+  // workbox: {
     // importScripts: ['cloudinaryPlugin.min.js'],
     // runtimeCaching: [{
     //   urlPattern: 'https://fonts.googleapis.com/.*',
@@ -105,7 +105,7 @@ module.exports = {
     //     }]
     //   }
     // }]
-  },
+  // },
   // generate: {
   //   routes: async () => {
   //     const { data } = await axios.get('http://localhost:1337/characters');

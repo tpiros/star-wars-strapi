@@ -26,7 +26,7 @@ import axios from 'axios';
 import cl from '~/plugins/cloudinary';
 
 export default {
-  data: () => ({ character: {} }),
+  // data: () => ({ character: {} }),
   async asyncData({ params, $axios }) {
     const data = await $axios.$get(`characters/${params.id}`);
     return { character: data };
@@ -47,7 +47,8 @@ export default {
       const data = await this.$axios.$put(`characters/${this.$route.params.id}`, {
         favourite: !favourite
       });
-      this.$data.character = data;
+      // this.$data.character = data;
+      return { character: data };
     }
   }
 }
