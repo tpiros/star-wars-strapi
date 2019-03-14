@@ -90,10 +90,10 @@ module.exports = {
       method: 'GET',
       strategyOptions: {cacheableResponse: { statuses: [0, 200] }}
     },{
-      urlPattern: 'https://serene-hamlet-60919.herokuapp.com/.*',
-      handler: 'staleWhileRevalidate',
-      method: 'GET',
-      strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
+      // urlPattern: 'https://serene-hamlet-60919.herokuapp.com/.*',
+      // handler: 'staleWhileRevalidate',
+      // method: 'GET',
+      // strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
     }, {
       urlPattern: 'https://res.cloudinary.com/.*',
       handler: 'staleWhileRevalidate',

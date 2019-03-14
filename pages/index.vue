@@ -28,7 +28,7 @@ import cl from '~/plugins/cloudinary';
 
 export default {
   async asyncData({ $axios }) {
-    let data = await $axios.$get(`${$axios.defaults.baseURL}characters`);
+    let data = await $axios.$get('characters');
     data = data.map(d => ({
       id: d.id,
       name: d.name,
