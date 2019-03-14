@@ -108,10 +108,10 @@ module.exports = {
       }
     }]
   },
-  generate: {
-    routes: async () => {
-      const { data } = await axios.get('http://localhost:1337/characters');
-      return data.map(character => `/characters/${character.id}`);
-    }
-  }
+  // generate: {
+  //   routes: async () => {
+  //     const { data } = await axios.get('http://localhost:1337/characters');
+  //     return data.map(character => `/characters/${character.id}`);
+  //   }
+  // }
 }
