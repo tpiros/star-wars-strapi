@@ -34,14 +34,16 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '~/assets/style/app.styl'
+    '~/assets/style/app.styl',
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/vuetify'
+    '@/plugins/vuetify',
+    '~/plugins/fontawesome.js'
   ],
 
   /*
@@ -50,7 +52,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // '@nuxtjs/pwa',
+    '@nuxtjs/pwa'
   ],
   /*
   ** Axios module configuration
@@ -77,39 +79,39 @@ module.exports = {
     extend(config, ctx) {
     }
   },
-  // workbox: {
-    // importScripts: ['cloudinaryPlugin.min.js'],
-    // runtimeCaching: [{
-    //   urlPattern: 'https://fonts.googleapis.com/.*',
-    //   handler: 'staleWhileRevalidate',
-    //   method: 'GET',
-    //   strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
-    // }, {
-    //   urlPattern: 'https://fonts.gstatic.com/.*',
-    //   handler: 'cacheFirst',
-    //   method: 'GET',
-    //   strategyOptions: {cacheableResponse: { statuses: [0, 200] }}
-    // },{
-    //   urlPattern: 'https://serene-hamlet-60919.herokuapp.com/.*',
-    //   handler: 'networkFirst',
-    //   method: 'GET',
-    //   strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
-    // }, {
-    //   urlPattern: 'https://res.cloudinary.com/.*',
-    //   handler: 'staleWhileRevalidate',
-    //   strategyOptions: { cacheableResponse: { statuses: [0, 200] }},
-    //   options: {
-    //     cacheName: 'cloudinary-images',
-    //     plugins: [{
-    //       requestWillFetch: async ({ request }) => cloudinaryPlugin.requestWillFetch(request)
-    //     }]
-    //   }
-    // }]
-  // },
-  // generate: {
-  //   routes: async () => {
-  //     const { data } = await axios.get('http://localhost:1337/characters');
-  //     return data.map(character => `/characters/${character.id}`);
-  //   }
-  // }
+  workbox: {
+    importScripts: ['cloudinaryPlugin.min.js'],
+    runtimeCaching: [{
+      urlPattern: 'https://fonts.googleapis.com/.*',
+      handler: 'staleWhileRevalidate',
+      method: 'GET',
+      strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
+    }, {
+      urlPattern: 'https://fonts.gstatic.com/.*',
+      handler: 'cacheFirst',
+      method: 'GET',
+      strategyOptions: {cacheableResponse: { statuses: [0, 200] }}
+    },{
+      urlPattern: 'https://serene-hamlet-60919.herokuapp.com/.*',
+      handler: 'networkFirst',
+      method: 'GET',
+      strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
+    }, {
+      urlPattern: 'https://res.cloudinary.com/.*',
+      handler: 'staleWhileRevalidate',
+      strategyOptions: { cacheableResponse: { statuses: [0, 200] }},
+      options: {
+        cacheName: 'cloudinary-images',
+        plugins: [{
+          requestWillFetch: async ({ request }) => cloudinaryPlugin.requestWillFetch(request)
+        }]
+      }
+    }]
+  },
+  generate: {
+    routes: async () => {
+      const { data } = await axios.get('http://localhost:1337/characters');
+      return data.map(character => `/characters/${character.id}`);
+    }
+  }
 }

@@ -1,22 +1,18 @@
 <template>
   <div>
    <v-card>
-    <v-img v-if="character.image"
+    <v-img max-height="500" contain v-if="character.image"
       :src="transformImage(`jam/${character.image}`)"
     ></v-img>
-
     <v-card-title primary-title>
       <div>
-        <h3 class="headline mb-0">{{ character.name }}</h3>
-        <span class="grey--text">{{ character.alliance }} | {{ character.weapon }} | {{ character.homeworld }}</span>
+        <h3 class="headline mb-0">{{ character.name }} <font-awesome-icon :style="{ color: 'red' }" v-if="['rebel', 'resistance'].some(el => character.alliance.toLowerCase().includes(el))" :icon="['fab', 'rebel']" />
+          <font-awesome-icon v-else :icon="['fab', 'empire']" /></h3>
+        <span class="grey--text">{{ character.species }} | {{ character.weapon || 'no weapon' }} | {{ character.homeworld }}</span>
         <div> {{ character.bio }} </div>
       </div>
     </v-card-title>
 
-    <v-card-actions @click="toggleFavourite(character.favourite)">
-      <v-btn flat v-if="!character.favourite" color="blue">Favourite</v-btn>
-      <v-btn flat v-else color="red">Unfavourite</v-btn>
-    </v-card-actions>
   </v-card>
   </div>
 </template>
@@ -26,7 +22,7 @@ import axios from 'axios';
 import cl from '~/plugins/cloudinary';
 
 export default {
-  // data: () => ({ character: {} }),
+  data: () => ({ character: {} }),
   async asyncData({ params, $axios }) {
     const data = await $axios.$get(`characters/${params.id}`);
     return { character: data };
@@ -36,20 +32,14 @@ export default {
       return cl.url(publicId, {
         secure: true,
         transformation: [{
-          width: 300,
+          width: 400,
+          height: 500,
           crop: 'fit',
           fetchFormat: 'auto',
           quality: 'auto',
         }]
       })
     }, 
-    async toggleFavourite(favourite) {
-      const data = await this.$axios.$put(`characters/${this.$route.params.id}`, {
-        favourite: !favourite
-      });
-      // this.$data.character = data;
-      return { character: data };
-    }
   }
 }
 </script>

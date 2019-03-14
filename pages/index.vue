@@ -16,7 +16,8 @@
           <v-list-tile-sub-title v-html="character.alliance"></v-list-tile-sub-title>
         </v-list-tile-content>
         <v-list-tile-action>
-          <v-icon v-if="character.favourite" color="blue">star</v-icon>
+          <font-awesome-icon :style="{ color: 'red' }" v-if="['rebel', 'resistance'].some(el => character.alliance.toLowerCase().includes(el))" :icon="['fab', 'rebel']" />
+          <font-awesome-icon v-else :icon="['fab', 'empire']" />
         </v-list-tile-action>
       </v-list-tile>
     </template>
