@@ -53,12 +53,7 @@ export default {
           quality: 'auto',
         }]
       })
-    },
-    createUrl(name) {
-      return this.$router.push({
-        path: `/characters/${name.replace(/-|\s/g, '').toLowerCase()}`
-      });
-    },
+    }
   },
 }
 </script>

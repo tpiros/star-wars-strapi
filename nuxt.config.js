@@ -50,7 +50,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
   ],
   /*
   ** Axios module configuration
@@ -78,33 +78,33 @@ module.exports = {
     }
   },
   workbox: {
-    importScripts: ['cloudinaryPlugin.min.js'],
-    runtimeCaching: [{
-      urlPattern: 'https://fonts.googleapis.com/.*',
-      handler: 'staleWhileRevalidate',
-      method: 'GET',
-      strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
-    }, {
-      urlPattern: 'https://fonts.gstatic.com/.*',
-      handler: 'cacheFirst',
-      method: 'GET',
-      strategyOptions: {cacheableResponse: { statuses: [0, 200] }}
-    },{
-      // urlPattern: 'https://serene-hamlet-60919.herokuapp.com/.*',
-      // handler: 'staleWhileRevalidate',
-      // method: 'GET',
-      // strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
-    }, {
-      urlPattern: 'https://res.cloudinary.com/.*',
-      handler: 'staleWhileRevalidate',
-      strategyOptions: { cacheableResponse: { statuses: [0, 200] }},
-      options: {
-        cacheName: 'cloudinary-images',
-        plugins: [{
-          requestWillFetch: async ({ request }) => cloudinaryPlugin.requestWillFetch(request)
-        }]
-      }
-    }]
+    // importScripts: ['cloudinaryPlugin.min.js'],
+    // runtimeCaching: [{
+    //   urlPattern: 'https://fonts.googleapis.com/.*',
+    //   handler: 'staleWhileRevalidate',
+    //   method: 'GET',
+    //   strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
+    // }, {
+    //   urlPattern: 'https://fonts.gstatic.com/.*',
+    //   handler: 'cacheFirst',
+    //   method: 'GET',
+    //   strategyOptions: {cacheableResponse: { statuses: [0, 200] }}
+    // },{
+    //   urlPattern: 'https://serene-hamlet-60919.herokuapp.com/.*',
+    //   handler: 'networkFirst',
+    //   method: 'GET',
+    //   strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
+    // }, {
+    //   urlPattern: 'https://res.cloudinary.com/.*',
+    //   handler: 'staleWhileRevalidate',
+    //   strategyOptions: { cacheableResponse: { statuses: [0, 200] }},
+    //   options: {
+    //     cacheName: 'cloudinary-images',
+    //     plugins: [{
+    //       requestWillFetch: async ({ request }) => cloudinaryPlugin.requestWillFetch(request)
+    //     }]
+    //   }
+    // }]
   },
   // generate: {
   //   routes: async () => {
