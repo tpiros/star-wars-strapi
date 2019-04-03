@@ -1,5 +1,5 @@
 <template>
-<v-card>
+  <v-card>
     <v-list two-line>
       <template v-for="(character, index) in characters">
         <v-divider v-if="index > 0" :key="`d-${index}`"></v-divider>

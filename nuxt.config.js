@@ -1,10 +1,10 @@
 const pkg = require('./package')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
-import axios from 'axios'
+const axios = require('axios');
 
 module.exports = {
-  // mode: 'universal',
-  mode: 'spa',
+  mode: 'universal',
+  // mode: 'spa',
   /*
   ** Headers of the page
   */
@@ -78,35 +78,35 @@ module.exports = {
     extend(config, ctx) {
     }
   },
-  // workbox: {
-  //   importScripts: ['cloudinaryPlugin.min.js'],
-  //   runtimeCaching: [{
-  //     urlPattern: 'https://fonts.googleapis.com/.*',
-  //     handler: 'staleWhileRevalidate',
-  //     method: 'GET',
-  //     strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
-  //   }, {
-  //     urlPattern: 'https://fonts.gstatic.com/.*',
-  //     handler: 'cacheFirst',
-  //     method: 'GET',
-  //     strategyOptions: {cacheableResponse: { statuses: [0, 200] }}
-  //   },{
-  //     urlPattern: 'https://serene-hamlet-60919.herokuapp.com/.*',
-  //     handler: 'networkFirst',
-  //     method: 'GET',
-  //     strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
-  //   }, {
-  //     urlPattern: 'https://res.cloudinary.com/.*',
-  //     handler: 'staleWhileRevalidate',
-  //     strategyOptions: { cacheableResponse: { statuses: [0, 200] }},
-  //     options: {
-  //       cacheName: 'cloudinary-images',
-  //       plugins: [{
-  //         requestWillFetch: async ({ request }) => cloudinaryPlugin.requestWillFetch(request)
-  //       }]
-  //     }
-  //   }]
-  // },
+  workbox: {
+    importScripts: ['cloudinaryPlugin.min.js'],
+    runtimeCaching: [{
+      urlPattern: 'https://fonts.googleapis.com/.*',
+      handler: 'staleWhileRevalidate',
+      method: 'GET',
+      strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
+    }, {
+      urlPattern: 'https://fonts.gstatic.com/.*',
+      handler: 'cacheFirst',
+      method: 'GET',
+      strategyOptions: {cacheableResponse: { statuses: [0, 200] }}
+    },{
+      urlPattern: 'https://serene-hamlet-60919.herokuapp.com/.*',
+      handler: 'networkFirst',
+      method: 'GET',
+      strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
+    }, {
+      urlPattern: 'https://res.cloudinary.com/.*',
+      handler: 'staleWhileRevalidate',
+      strategyOptions: { cacheableResponse: { statuses: [0, 200] }},
+      options: {
+        cacheName: 'cloudinary-images',
+        plugins: [{
+          requestWillFetch: async ({ request }) => cloudinaryPlugin.requestWillFetch(request)
+        }]
+      }
+    }]
+  },
   generate: {
     routes: async () => {
       const { data } = await axios.get('https://serene-hamlet-60919.herokuapp.com/characters');
