@@ -1,10 +1,10 @@
 const pkg = require('./package')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
-// import axios from 'axios'
+import axios from 'axios'
 
 module.exports = {
-  mode: 'universal',
-  // mode: 'spa',
+  // mode: 'universal',
+  mode: 'spa',
   /*
   ** Headers of the page
   */
@@ -108,10 +108,10 @@ module.exports = {
       }
     }]
   },
-  // generate: {
-  //   routes: async () => {
-  //     const { data } = await axios.get('http://localhost:1337/characters');
-  //     return data.map(character => `/characters/${character.id}`);
-  //   }
-  // }
+  generate: {
+    routes: async () => {
+      const { data } = await axios.get('https://serene-hamlet-60919.herokuapp.com/characters');
+      return data.map(character => `/characters/${character.id}`);
+    }
+  }
 }
