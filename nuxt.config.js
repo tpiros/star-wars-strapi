@@ -58,7 +58,7 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: 'https://serene-hamlet-60919.herokuapp.com/'
+    baseURL: 'https://guarded-coast-94418.herokuapp.com/'
   },
 
   /*
@@ -91,7 +91,7 @@ module.exports = {
       method: 'GET',
       strategyOptions: {cacheableResponse: { statuses: [0, 200] }}
     },{
-      urlPattern: 'https://serene-hamlet-60919.herokuapp.com/.*',
+      urlPattern: 'https://guarded-coast-94418.herokuapp.com/.*',
       handler: 'networkFirst',
       method: 'GET',
       strategyOptions: { cacheableResponse: { statuses: [0, 200] }}
@@ -109,7 +109,7 @@ module.exports = {
   },
   generate: {
     routes: async () => {
-      const { data } = await axios.get('https://serene-hamlet-60919.herokuapp.com/characters');
+      const { data } = await axios.get('https://guarded-coast-94418.herokuapp.com/characters');
       return data.map(character => `/characters/${character.id}`);
     }
   }
