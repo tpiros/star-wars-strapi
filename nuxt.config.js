@@ -43,7 +43,8 @@ module.exports = {
   */
   plugins: [
     '@/plugins/vuetify',
-    '~/plugins/fontawesome.js'
+    '~/plugins/fontawesome.js',
+    '~/plugins/cloudinary.js'
   ],
 
   /*
@@ -51,13 +52,12 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    // '@nuxtjs/pwa'
   ],
   /*
   ** Axios module configuration
   */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
     baseURL: 'https://guarded-coast-94418.herokuapp.com/'
   },
 

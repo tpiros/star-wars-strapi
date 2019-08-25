@@ -4,8 +4,9 @@
     <!-- <v-img max-height="500" contain v-if="character.image"
       :src="transformImage(`jam/${character.image}`)"
     ></v-img> -->
-    <img max-height="500" style="display: block; margin-left: auto; margin-right: auto;" v-if="character.image"
-      :src="transformImage(`jam/${character.image}`)" />
+    <!-- <img max-height="500"  v-if="character.image" :src="transformImage(`jam/${character.image}`)" /> -->
+    <cld-image style="display: block; margin-left: auto; margin-right: auto;" :publicId="`jam/${character.image}`" width="400" height="500" crop="fit" fetchFormat="auto" quality="auto" secure="true" />
+      
     <v-card-title primary-title>
       <div>
         <h3 class="headline mb-0">{{ character.name }} <font-awesome-icon :style="{ color: 'red' }" v-if="['rebel', 'resistance'].some(el => character.alliance.toLowerCase().includes(el))" :icon="['fab', 'rebel']" />
@@ -20,7 +21,6 @@
 </template>
 
 <script>
-import cl from '~/plugins/cloudinary';
 
 export default {
   data: () => ({ character: {} }),

@@ -9,7 +9,7 @@
           :to="`/characters/${character.id}`"
         >
           <v-list-tile-avatar>
-            <img :src="transformImage(`jam/${character.image}`)">
+            <cld-image :publicId="`jam/${character.image}`" width="40" height="40" crop="thumb" gravity="face" fetchFormat="auto" quality="auto" secure="true" />
           </v-list-tile-avatar>
 
           <v-list-tile-content>
@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import cl from '~/plugins/cloudinary';
 
 export default {
   async asyncData({ $axios }) {
@@ -43,21 +42,6 @@ export default {
     return { 
       characters: data
     };
-  },
-  methods: {
-    transformImage(publicId) {
-      return cl.url(publicId, {
-        secure: true,
-        transformation: [{
-          width: 40,
-          height: 40,
-          crop: 'thumb',
-          gravity: 'face',
-          fetchFormat: 'auto',
-          quality: 'auto',
-        }]
-      })
-    }
   },
 }
 </script>
