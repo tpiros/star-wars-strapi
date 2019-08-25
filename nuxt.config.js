@@ -52,7 +52,7 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/axios',
-    // '@nuxtjs/pwa'
+    '@nuxtjs/pwa'
   ],
   /*
   ** Axios module configuration
