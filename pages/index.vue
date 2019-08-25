@@ -9,7 +9,7 @@
           :to="`/characters/${character.id}`"
         >
           <v-list-tile-avatar>
-            <cld-image :publicId="`jam/${character.image}`" width="40" height="40" crop="thumb" gravity="face" fetchFormat="auto" quality="auto" secure="true" />
+            <cld-image :publicId="`jam/${character.image}`" width="40" height="40" crop="thumb" gravity="face" fetchFormat="auto" quality="auto" secure="true" :alt="`${character.name}`" />
           </v-list-tile-avatar>
 
           <v-list-tile-content>

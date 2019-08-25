@@ -1,11 +1,7 @@
 <template>
   <div>
    <v-card>
-    <!-- <v-img max-height="500" contain v-if="character.image"
-      :src="transformImage(`jam/${character.image}`)"
-    ></v-img> -->
-    <!-- <img max-height="500"  v-if="character.image" :src="transformImage(`jam/${character.image}`)" /> -->
-    <cld-image style="display: block; margin-left: auto; margin-right: auto;" :publicId="`jam/${character.image}`" width="400" height="500" crop="fit" fetchFormat="auto" quality="auto" secure="true" />
+    <cld-image style="display: block; margin-left: auto; margin-right: auto;" :publicId="`jam/${character.image}`" width="400" height="500" crop="fit" fetchFormat="auto" quality="auto" secure="true" :alt="`${character.name}`" />
       
     <v-card-title primary-title>
       <div>
