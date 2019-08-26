@@ -24,19 +24,5 @@ export default {
     const data = await $axios.$get(`characters/${params.id}`);
     return { character: data };
   },
-  methods: {
-    transformImage(publicId) {
-      return cl.url(publicId, {
-        secure: true,
-        transformation: [{
-          width: 400,
-          height: 500,
-          crop: 'fit',
-          fetchFormat: 'auto',
-          quality: 'auto',
-        }]
-      })
-    }, 
-  }
 }
 </script>
