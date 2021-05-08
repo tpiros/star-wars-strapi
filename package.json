@@ -21,7 +21,7 @@
     "cloudinary-workbox-plugin": "0.0.3",
     "cross-env": "^5.2.1",
     "fastify": "^1.14.6",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "lodash.template": ">=4.5.0",
     "nuxt": "^2.11.0",
     "vuetify": "^1.5.23",
